@@ -1,0 +1,76 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @apartment.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @apartment.longitude %>
+</p>
+
+<p>
+  <strong>Street1:</strong>
+  <%= @apartment.street1 %>
+</p>
+
+<p>
+  <strong>Street2:</strong>
+  <%= @apartment.street2 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @apartment.city %>
+</p>
+
+<p>
+  <strong>Postalcode:</strong>
+  <%= @apartment.postalcode %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @apartment.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @apartment.country %>
+</p>
+
+<p>
+  <strong>Ownerfullname:</strong>
+  <%= @apartment.ownerfullname %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @apartment.time %>
+</p>
+
+<p>
+  <strong>Phonenumber:</strong>
+  <%= @apartment.phonenumber %>
+</p>
+
+<div id="map"data-apartment-id="<%=@apartment.id%>">Google map will appear here...</div>
+
+<script type="text/javascript">
+handler = Gmaps.build('Google');
+handler.buildMap({
+    provider: {},
+    internal: {id: 'map'}
+  },
+  function() {
+    markers = handler.addMarkers(<%=raw @pindrop.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    handler.getMap().setZoom(12);
+  }
+);
+</script>
+
+<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
+<%= link_to 'Back', apartments_path %>
