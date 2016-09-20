@@ -55,6 +55,10 @@
   <%= @apartment.phonenumber %>
 </p>
 
+<p>
+ <%= image_tag @apartment.image.url(:large) %>
+</p>
+
 <div id="map" data-apartment-id="<%=@apartment.id%>">Google map will appear here...</div>
 
 <script type="text/javascript">

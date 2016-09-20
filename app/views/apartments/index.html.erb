@@ -16,6 +16,7 @@
       <th>Owner Full Name</th>
       <th>Time</th>
       <th>Phone Number</th>
+      <th>Picture</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -34,6 +35,7 @@
         <td><%= apartment.ownerfullname %></td>
         <td><%= apartment.time %></td>
         <td><%= apartment.phonenumber %></td>
+        <td><%= image_tag apartment.image.url(:thumb) %></td>
         <td><%= link_to 'Show', apartment %></td>
         <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
         <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
