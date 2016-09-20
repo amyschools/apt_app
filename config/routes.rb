@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :apartments do
     get 'map_location'
   end
