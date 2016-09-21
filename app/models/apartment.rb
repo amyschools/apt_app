@@ -13,4 +13,6 @@ class Apartment < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
 
+  belongs_to :user
+
 end
