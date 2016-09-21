@@ -12,6 +12,7 @@
       <tr>
             <th>Username</th>
             <th>Email</th>
+            <th>Photo</th>
             <th></th>
         <th></th>
         <th></th>
@@ -22,6 +23,7 @@
       <%= content_tag_for(:tr, @users) do |user| %>
             <td><%= user.username %></td>
             <td><%= user.email %></td>
+            <td><%= image_tag user.image.url(:thumb) %></td>
             <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
