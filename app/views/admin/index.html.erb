@@ -1,0 +1,25 @@
+<div class="page-header">
+</div>
+<h1>Users</h1>
+<table class="table">
+  <thead>
+    <thead>
+      <tr>
+        <th>Email</th><th>Role</th><th>Make Admin</th>
+      </tr>
+    </thead>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.roles.map{|role| role.name}.join(', ')%></td>
+      <td>
+        <%= form_tag("/admin/" + user.id.to_s + "?role=teacher", method: :PUT) do %>
+          <input type="submit" value="Make Admin"/>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

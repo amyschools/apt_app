@@ -57,7 +57,8 @@
           <li class="nav-item"><%=link_to "Sign Up", new_user_registration_path%></li>
           <li class="nav-item"><%=link_to "Sign In", new_user_session_path%></li>
           <li class="nav-item"><%=link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path%></li>
-          <li class="nav-item"><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
+          <li class="nav-item">
+          <%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
         </ul>
       </div>
     </div>
@@ -70,7 +71,11 @@
       <% end %>
     <% end %>
 
-    <p>Current User: <%= current_user.username unless current_user.nil? %></p>
+    <p> Current User:
+      <%= if !current_user.nil?
+        current_user.email + ' (' + current_user.roles.pluck(:name).join(", ") + ')'
+      end %>
+</p>
 
 
     <%= yield %>

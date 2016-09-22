@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+<div class="col-md-6">
 
 <p>
   <strong>Latitude:</strong>
@@ -54,12 +56,9 @@
   <strong>Phonenumber:</strong>
   <%= @apartment.phonenumber %>
 </p>
+</div>
 
-<p>
- <%= image_tag @apartment.image.url(:large) %>
-</p>
-
-<div id="map" data-apartment-id="<%=@apartment.id%>">Google map will appear here...</div>
+<div class="col-md-6" id="map" data-apartment-id="<%=@apartment.id%>">Google map will appear here...</div>
 
 <script type="text/javascript">
 handler = Gmaps.build('Google');
@@ -75,6 +74,18 @@ handler.buildMap({
   }
 );
 </script>
+</div>
+</div> <!--end row-->
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+<p class="picture">
+ <%= image_tag @apartment.image.url(:large) %>
+</p>
+</div>
+<div class="col-md-4"></div>
+</div> <!--row-->
 
 <%= link_to 'Edit', edit_apartment_path(@apartment) %> |
 <%= link_to 'Back', apartments_path %>

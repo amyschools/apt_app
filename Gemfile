@@ -57,3 +57,5 @@ end
 gem 'devise', '~> 4.2'
 gem 'omniauth-twitter'
 gem 'paperclip'
+gem 'cancancan'
+gem 'rolify'

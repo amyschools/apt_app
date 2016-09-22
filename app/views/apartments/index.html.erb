@@ -5,8 +5,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Latitude</th>
-      <th>Longitude</th>
+      <!-- <th>Latitude</th>
+      <th>Longitude</th> -->
       <th>Street1</th>
       <th>Street2</th>
       <th>City</th>
@@ -15,7 +15,7 @@
       <th>Country</th>
       <th>Owner Full Name</th>
       <th>Owner Email</th>
-      <th>Time</th>
+      <!-- <th>Time</th> -->
       <th>Phone Number</th>
       <th>Picture</th>
       <th colspan="3"></th>
@@ -25,8 +25,8 @@
   <tbody>
     <% @apartments.each do |apartment| %>
       <tr>
-        <td><%= apartment.latitude %></td>
-        <td><%= apartment.longitude %></td>
+        <!-- <td><%= apartment.latitude %></td>
+        <td><%= apartment.longitude %></td> -->
         <td><%= apartment.street1 %></td>
         <td><%= apartment.street2 %></td>
         <td><%= apartment.city %></td>
@@ -35,13 +35,13 @@
         <td><%= apartment.country %></td>
         <td><%= apartment.ownerfullname %></td>
         <td><%= apartment.user.email %></td>
-        <td><%= apartment.time %></td>
+        <!-- <td><%= apartment.time %></td> -->
         <td><%= apartment.phonenumber %></td>
         <td><%= image_tag apartment.image.url(:thumb) %></td>
         <td><%= link_to 'Show', apartment %></td>
         <% if apartment.user == current_user %>
-        <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
-        <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_apartment_path(apartment) %></td>
+          <td><%= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
